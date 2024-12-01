@@ -1,0 +1,40 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "deploy-output"
+}
+
+datasource db {
+  provider = "postgres"
+  url      = env("DATABASE_URL_PRIMARY")
+}
+
+enum kind {
+  TeraByte
+  Pichau
+  Kabum
+}
+
+model Product {
+  Id          String  @id @default(uuid())
+  Title       String?
+  Description String?
+  Value       Float
+  Link        String
+  Where       String
+  Kind        kind
+  ImageUrl    String?
+
+  Slug String //Core key to the product
+
+  PriceHistory Price[]
+}
+
+model Price {
+  Id String @id @default(uuid())
+
+  AtDate DateTime
+  Price  Float
+
+  prodRef Product @relation(fields: [ProdId], references: [Id])
+  ProdId  String
+}

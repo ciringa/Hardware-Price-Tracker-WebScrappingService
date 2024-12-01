@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "db:indev":"npx prisma generate --schema=prisma/indev.prisma",
-    "db:deploy":"npx prisma generate --schema=prisma/deploy.prisma"
+    "db:indev": "npx prisma migrate dev --schema=prisma/indev.prisma",
+    "db:deploy": "npx prisma generate --schema=prisma/deploy.prisma",
+    "test": "npx vitest --run",
+    "dev": "npx tsx watch src/server.ts"
   },
   "keywords": [],
   "author": "",
@@ -13,12 +14,14 @@
   "description": "",
   "dependencies": {
     "@types/node": "^22.9.0",
+    "dotenv": "^16.4.5",
     "fastify": "^5.1.0",
     "prisma": "^5.22.0",
     "puppeteer": "^23.7.1",
     "tsx": "^4.19.2",
     "typescript": "^5.6.3",
-    "vitest": "^2.1.4"
+    "vitest": "^2.1.4",
+    "zod": "^3.23.8"
   },
   "type": "module"
 }

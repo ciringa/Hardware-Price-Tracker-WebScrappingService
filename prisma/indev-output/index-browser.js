@@ -125,14 +125,27 @@ exports.Prisma.StaticLinkScalarFieldEnum = {
   GeneratedAt: 'GeneratedAt'
 };
 
+exports.Prisma.IssueScalarFieldEnum = {
+  Id: 'Id',
+  When: 'When',
+  Reason: 'Reason',
+  At: 'At'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
 };
 
+exports.Prisma.NullsOrder = {
+  first: 'first',
+  last: 'last'
+};
+
 
 exports.Prisma.ModelName = {
-  StaticLink: 'StaticLink'
+  StaticLink: 'StaticLink',
+  Issue: 'Issue'
 };
 
 /**
